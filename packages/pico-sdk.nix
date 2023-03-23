@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, cmake }:
+{ stdenv, fetchFromGitHub, callPackage, cmake }:
 
 stdenv.mkDerivation rec {
   pname = "pico-sdk";
@@ -9,6 +9,13 @@ stdenv.mkDerivation rec {
     repo = "pico-sdk";
     rev = "${version}";
     hash = "sha256-p69go8KXQR21szPb+R1xuonyFj+ZJDunNeoU7M3zIsE=";
+  };
+
+  btstack = fetchFromGitHub {
+    owner = "bluekitchen";
+    repo = "btstack";
+    rev = "0d212321a995ed2f9a80988f73ede854c7ad23b8";
+    hash = "sha256-EkeHDBwL5+BzBQl2j9IMJdDMSgdIkQTBOpJrE5W/Fuo=";
   };
 
   cyw43-driver = fetchFromGitHub {
@@ -39,7 +46,7 @@ stdenv.mkDerivation rec {
     hash = "sha256-SpPDJitK1qwQnjdDLmmoRfNlzby0RX4+MgmoDBxVJKA=";
   };
 
-  submodules = import ./submodules { inherit fetchFromGitHub; };
+  # submodules = import ./submodules { inherit fetchFromGitHub callPackage; };
 
   nativeBuildInputs = [ cmake ];
 
@@ -49,7 +56,7 @@ stdenv.mkDerivation rec {
     SDK_DIR=$out/lib/pico-sdk
     mkdir -p $SDK_DIR
     mkdir -p $SDK_DIR/lib
-    cp -R ${submodules.btstack}/. $SDK_DIR/lib/btstack
+    cp -R ${btstack}/. $SDK_DIR/lib/btstack
     cp -R ${cyw43-driver}/. $SDK_DIR/lib/cyw43-driver
     cp -R ${lwip}/. $SDK_DIR/lib/lwip
     cp -R ${mbedtls}/. $SDK_DIR/lib/mbedtls

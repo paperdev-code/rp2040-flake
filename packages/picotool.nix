@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { }, pico-sdk }: with pkgs;
+{ stdenv, libusb, cmake, pkgs-config, pico-sdk }: with pkgs;
 
 stdenv.mkDerivation rec {
   pname = "picotool";

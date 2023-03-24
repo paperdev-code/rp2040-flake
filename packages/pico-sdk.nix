@@ -13,33 +13,13 @@ stdenv.mkDerivation rec {
 
   btstack = import ./submodules/btstack.nix { inherit fetchFromGitHub; };
 
-  cyw43-driver = fetchFromGitHub {
-    owner = "georgerobotics";
-    repo = "cyw43-driver";
-    rev = "9bfca61173a94432839cd39210f1d1afdf602c42";
-    hash = "sha256-iWZDrAAt469yEmH7QXYn35xS9dm7vzL1vSWn6oXneUQ=";
-  };
+  cyw43-driver = import ./submodules/cyw43-driver.nix { inherit fetchFromGitHub; };
 
-  lwip = fetchFromGitHub {
-    owner = "lwip-tcpip";
-    repo = "lwip";
-    rev = "239918ccc173cb2c2a62f41a40fd893f57faf1d6";
-    hash = "sha256-oV5YKDDj3dzo/ZR2AQzZKT6jv3n6OpwYu1BqXoK6cVA=";
-  };
+  lwip = import ./submodules/lwip.nix { inherit fetchFromGitHub; };
 
-  mbedtls = fetchFromGitHub {
-    owner = "MBed-TLS";
-    repo = "mbedtls";
-    rev = "a77287f8fa6b76f74984121fdafc8563147435c8";
-    hash = "sha256-g3V0NL4FTjA4NV4ajAqQZGVmKGno1NEFzsojCgRxrQw=";
-  };
+  mbedtls = import ./submodules/mbedtls.nix { inherit fetchFromGitHub; };
 
-  tinyusb = fetchFromGitHub {
-    owner = "hathach";
-    repo = "tinyusb";
-    rev = "86c416d4c0fb38432460b3e11b08b9de76941bf5";
-    hash = "sha256-SpPDJitK1qwQnjdDLmmoRfNlzby0RX4+MgmoDBxVJKA=";
-  };
+  tinyusb = import ./submodules/tinyusb.nix { inherit fetchFromGitHub; };
 
   # submodules = import ./submodules { inherit fetchFromGitHub callPackage; };
 

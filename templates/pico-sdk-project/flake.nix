@@ -10,10 +10,11 @@
   outputs = { nixpkgs, flake-utils, ... }@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = (import nixpkgs) { inherit system; };
+        # pkgs = (import nixpkgs) { inherit system; };
+        rp2040-shell = inputs.rp2040.devShells.${system}.default;
       in
       rec {
-        devShells = inputs.rp2040.devShells;
+        devShells.default = rp2040-shell;
       }
     );
 }

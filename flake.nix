@@ -28,7 +28,7 @@
             usbutils
             python3
             newlib-nano
-            gcc-arm-embedded-10
+            gcc-arm-embedded
           ] ++ builtins.attrValues packages;
 
           # Simple shell with basic toolchain

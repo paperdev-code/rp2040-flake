@@ -1,4 +1,4 @@
-{ stdenv, libusb, cmake, pkgs-config, pico-sdk }: with pkgs;
+{ stdenv, libusb, cmake, pkg-config, fetchFromGitHub, pico-sdk }:
 
 stdenv.mkDerivation rec {
   pname = "picotool";

@@ -1,7 +1,7 @@
-{ fetchFromGitHub }: {
-  btstack = import ./btstack.nix { fetchFromGitHub = fetchFromGitHub; };
-  cyw43-driver = import ./cyw43-driver.nix { fetchFromGitHub = fetchFromGitHub; };
-  lwip = import ./lwip.nix { fetchFromGitHub = fetchFromGitHub; };
-  mbedtls = import ./mbedtls.nix { fetchFromGitHub = fetchFromGitHub; };
-  tinyusb = import ./tinyusb.nix { fetchFromGitHub = fetchFromGitHub; };
+{
+  btstack = ./btstack.nix;
+  cyw43-driver = ./cyw43-driver.nix;
+  lwip = ./lwip.nix;
+  mbedtls = ./mbedtls.nix;
+  tinyusb = ./tinyusb.nix;
 }

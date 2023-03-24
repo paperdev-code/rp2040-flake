@@ -36,11 +36,15 @@
               export PICO_SDK_PATH=${packages.pico-sdk}/lib/pico-sdk
             '';
           };
+        }) // {
 
-          # Templates
-          templates.pico-sdk-project = {
-            path = ./templates/pico-sdk-project;
-            description = "A Pico SDK project starting point.";
-          };
-        });
+      # Templates
+      templates = rec {
+        pico-sdk-project = {
+          path = ./templates/pico-sdk-project;
+          description = "A Pico SDK project";
+        };
+        default = pico-sdk-project;
+      };
+    };
 }

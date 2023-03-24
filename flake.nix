@@ -27,10 +27,7 @@
             python3
             newlib-nano
             gcc-arm-embedded
-          ] ++ [
-            packages.pico-sdk
-            packages.picotool
-          ];
+          ] ++ builtins.attrValues packages;
 
           # Simple shell with basic toolchain
           devShells.default = pkgs.mkShell {

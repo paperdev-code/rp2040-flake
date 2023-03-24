@@ -9,7 +9,9 @@
   outputs = { nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem
       (system:
-        let pkgs = nixpkgs.legacyPackages.${system}; in
+        let
+          pkgs = (import nixpkgs) { inherit system; };
+        in
         rec {
           # Packages defined by this flake
           packages = import ./packages { inherit pkgs; };
@@ -26,7 +28,7 @@
             usbutils
             python3
             newlib-nano
-            gcc-arm-embedded
+            gcc-arm-embedded-10
           ] ++ builtins.attrValues packages;
 
           # Simple shell with basic toolchain

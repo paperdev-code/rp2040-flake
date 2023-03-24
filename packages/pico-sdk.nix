@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     hash = "sha256-p69go8KXQR21szPb+R1xuonyFj+ZJDunNeoU7M3zIsE=";
   };
 
-  submodules = import ./submodules { inherit fetchFromGitHub; };
+  submodules = import ./submodules { fetchFromGitHub = fetchFromGitHub; };
 
   nativeBuildInputs = [ cmake ];
 

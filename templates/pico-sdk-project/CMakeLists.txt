@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.21)
 
+# compile_commands for c/c++ lsp
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 set(PICO_BOARD "pico")
 

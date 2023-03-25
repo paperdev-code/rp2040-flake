@@ -15,8 +15,8 @@ add_executable(app
     src/main.c
     )
 
-pico_stdio_enable_usb(app 0)
-pico_stdio_enable_usb(app 0)
+pico_enable_stdio_usb(app 0)
+pico_enable_stdio_uart(app 0)
 
 target_link_libraries(app
     pico_stdlib

@@ -29,7 +29,6 @@
             python3
             newlib-nano
             gcc-arm-embedded
-            glibc
           ] ++ builtins.attrValues packages;
 
           # Simple shell with basic toolchain

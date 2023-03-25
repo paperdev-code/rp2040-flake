@@ -29,6 +29,7 @@
             python3
             newlib-nano
             gcc-arm-embedded
+            picocom
           ] ++ builtins.attrValues packages;
 
           # Simple shell with basic toolchain

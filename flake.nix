@@ -36,6 +36,7 @@
             packages = toolchain;
             shellHook = ''
               export PICO_SDK_PATH=${packages.pico-sdk}/lib/pico-sdk
+              export C_INCLUDE_PATH=${pkgs.gcc-arm-embedded}/arm-none-eabi/include:$C_INCLUDE_PATH
             '';
           };
         }) // {

@@ -25,7 +25,7 @@
             cmake
             newlib-nano
             gcc-arm-embedded
-          ] ++ inputs.rp2040.suggested pkgs;
+          ];
 
           shellHook = ''
             export PICO_SDK_PATH=${pkgs.pico-sdk}/lib/pico-sdk

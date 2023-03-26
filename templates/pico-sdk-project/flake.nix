@@ -8,13 +8,29 @@
   };
 
   outputs = { nixpkgs, flake-utils, ... }@inputs:
+    let
+      overlays = [
+        inputs.rp2040.overlays.default
+      ];
+    in
     flake-utils.lib.eachDefaultSystem (system:
       let
-        # pkgs = (import nixpkgs) { inherit system; };
-        rp2040-shell = inputs.rp2040.devShells.${system}.default;
+        pkgs = (import nixpkgs) { inherit overlays system; };
       in
       rec {
-        devShells.default = rp2040-shell;
-      }
-    );
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            pico-sdk
+            picotool
+            cmake
+            newlib-nano
+            gcc-arm-embedded
+          ] ++ inputs.rp2040.suggested pkgs;
+
+          shellHook = ''
+            export PICO_SDK_PATH=${pkgs.pico-sdk}/lib/pico-sdk
+            export C_INCLUDE_PATH=${pkgs.gcc-arm-embedded}/arm-none-eabi/include:$C_INCLUDE_PATH
+          '';
+        };
+      });
 }

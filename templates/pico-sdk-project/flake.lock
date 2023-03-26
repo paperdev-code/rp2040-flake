@@ -32,11 +32,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1679758375,
-        "narHash": "sha256-q4ljS5GxrZb3L4dvRrJmJBcYWSbqpoi7j3YTUK7IHK0=",
+        "lastModified": 1679835112,
+        "narHash": "sha256-rlIN25Dja8haufqdPUCJjJ/PXlSUj6GQkq05eUd1N2A=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "dce79b3cb10bc8b1a9625a9c764512b6a27d9ad5",
+        "rev": "52038a5e50c2646c3cd8ba0a04c0d87010653dd8",
         "type": "github"
       },
       "original": {
@@ -73,11 +73,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1679759334,
-        "narHash": "sha256-yOh9tNOTCkq+SHMHWMcM/GE/sy5XJz4kJFVgSmaLIRc=",
+        "lastModified": 1679760993,
+        "narHash": "sha256-B+lX4qFgJGa3aBu6DSWBfGVof3nl5V9KmDYoY870FbU=",
         "owner": "paperdev-code",
         "repo": "rp2040-flake",
-        "rev": "432fda9526d55efb10595468d24aa150abf7793d",
+        "rev": "11ebd9fb2bea9ee7cb8b5e5d18a6d1ebe368048d",
         "type": "github"
       },
       "original": {

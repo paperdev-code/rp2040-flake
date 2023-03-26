@@ -31,5 +31,12 @@
         };
         default = pico-sdk-project;
       };
+
+      udev-rules = ''
+        # RPi Pico in BOOTSEL mode
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0003", MODE="0666"
+        # RPi Pico
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000a", MODE="0666"
+      '';
     };
 }
